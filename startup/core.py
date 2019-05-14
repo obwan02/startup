@@ -5,4 +5,4 @@ def add(script_location):
     if platform.system() == 'Windows':
         operating_systems.Windows().add(script_location)
     else:
-        return OSError('This operating system is not supported')
+        raise OSError('This operating system is not supported')

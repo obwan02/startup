@@ -7,5 +7,6 @@ class StartupTemplate(object):
             raise Exception('Cannot instantiate this class directly')
         self.python_location = sys.executable
     
-    def add():
+    def add(self):
+        # TODO: Don't allow invalid file names (security vulnerability)
         raise NotImplementedError('subclasses must override add()!')
