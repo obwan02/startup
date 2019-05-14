@@ -12,7 +12,6 @@ setup(
     description='A python library to allow scripts to be added to startup easily',
     long_description=readme,
     author='Sam Redmond',
-    author_email='sam@virtualstack.co.nz',
     url='https://github.com/SillySam/startup',
     license=license,
     packages=find_packages(exclude=('tests', 'docs'))
