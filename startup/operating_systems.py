@@ -1,5 +1,6 @@
 import platform
 import os
+import shutil
 from startup import template
 
 # Windows imports
@@ -36,3 +37,15 @@ class Windows(template.StartupTemplate):
             if '%' in self.bat_location:
                 var_type = winreg.REG_EXPAND_SZ
             winreg.SetValueEx(reg, 'python_startup_lib', 0, var_type, self.bat_location)
+
+
+class Linux(template.StartupTemplate):
+    def __init__(self):
+        super.__init__()
+    
+    def add(self, location):
+        path = os.path.abspath(location)
+        direc, tail = os.path.split(path)
+        shutil.copy(path, '/etc/init.d/{}'.format(tail))
+        os.system('chmod +x /etc/init.d/{}'.format(tail))
+        os.system('ln -s /etc/init.d/{} /etc/rcS.d/'.format(tail))
