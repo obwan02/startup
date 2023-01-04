@@ -5,6 +5,6 @@ os_startups = { 'Windows': operating_systems.Windows().add, 'Linux': operating_s
 
 def add(script_location):
     try:
-        os_startups[platform.system()]
+        os_startups[platform.system()](script_location)
     except KeyError:
         raise NotImplementedError('OS Not Supported')
